@@ -4,9 +4,11 @@ from django.db import OperationalError, connections
 
 
 class Command(BaseCommand):
-    help = "Waits for the database to be available before continuing"
 
-    def handle(self, *args, **options):
+    def handle(self, *args):
+        """
+        Waits for the database to be available before continuing.
+        """
         self.stdout.write("Waiting for database...")
 
         db_conn = None
